@@ -24,7 +24,7 @@ Built using **MERN stack (MongoDB, Express, React, Node.js)** and **Tailwind CSS
 
 | Login Page | Register | Dashboard | Reminder |
 |------------|----------|-----------|----------|
-| ![Login](./Screenshots/Login.png) | ![Register](./Screenshots/Register.png) | ![Dashboard](./Screenshots/Dashboard.png) | ![Reminder](./Screenshots/message.png) |
+| ![Login](./Notedown%20Project/Screenshots/Login.png) | ![Register](./Notedown%20Project/Screenshots/Register.png) | ![Dashboard](./Notedown%20Project/Screenshots/Dashboard.png) | ![Reminder](./Notedown%20Project/Screenshots/message.png) |
 
 ---
 
