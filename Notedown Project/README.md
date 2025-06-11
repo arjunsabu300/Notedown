@@ -25,13 +25,10 @@ Built using **MERN stack (MongoDB, Express, React, Node.js)** and **Tailwind CSS
 
 ## 📸 Screenshots
 
-Add your screenshots in the `/screenshots` folder and link them here:
 
-| Login Page | Dashboard | Task Filters |
+| Login Page | Register | Dashboard |  Reminder  |
 |------------|-----------|---------------|
-| ![Login](./screenshots/login.png) | ![Dashboard](./screenshots/dashboard.png) | ![Filter](./screenshots/filter.png) |
-
-> 💡 Tip: Use `Alt+PrintScreen` or any snipping tool to capture clean screenshots.
+| ![Login](./Screenshots/Login.png) | ![Register](./Screenshots/Register.png) | ![Dashboard](./Screenshots/Dashboard.png) |  ![Reminder](./)
 
 ---
 
