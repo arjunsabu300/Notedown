@@ -28,7 +28,7 @@ Built using **MERN stack (MongoDB, Express, React, Node.js)** and **Tailwind CSS
 
 | Login Page | Register | Dashboard |  Reminder  |
 |------------|-----------|---------------|
-| ![Login](./Screenshots/Login.png) | ![Register](./Screenshots/Register.png) | ![Dashboard](./Screenshots/Dashboard.png) |  ![Reminder](./)
+| ![Login](./Screenshots/Login.png) | ![Register](./Screenshots/Register.png) | ![Dashboard](./Screenshots/Dashboard.png) |  ![Reminder](./Screenshots/Screenshot 2025-06-11 213857.png)
 
 ---
 
