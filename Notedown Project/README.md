@@ -1,8 +1,4 @@
-Here's a complete `README.md` for your **Notedown** project (Student Task Manager), with well-organized sections and a placeholder for adding screenshots.
 
----
-
-````markdown
 # 📝 Notedown – Student Task Manager
 
 **Notedown** is a task management web application designed for students to help them stay organized, never miss a deadline, and manage assignments with ease.
@@ -140,7 +136,4 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 ```
 
----
 
-Let me know if you'd like to include **live demo instructions**, **Docker support**, or **GitHub deploy badge**.
-```
