@@ -4,6 +4,7 @@ import axios from 'axios';
 export default function RegisterForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [phonenumber, setPhoneNumber] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export default function RegisterForm() {
     }
 
     try {
-      const response=await axios.post('http://localhost:5000/api/Register', { username, password });
+      const response=await axios.post('http://localhost:5000/api/Register', { username, password,phonenumber});
       if(response.status==200){
         setError('Successfully registered! You can now log in.');
       }
@@ -58,6 +59,7 @@ export default function RegisterForm() {
           onChange={(e) => setConfirmPassword(e.target.value)}
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
         />
+        <input type="tel" placeholder='Enter Phonenumber' value={phonenumber} onChange={(e)=>setPhoneNumber(e.target.value)}className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300" />
         <button
           onClick={handleRegister}
           className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300"

@@ -9,6 +9,7 @@ export default function Dashboard() {
   const [subjectFilter, setSubjectFilter] = useState('');
   const [dateFilter, setDateFilter] = useState('');
   const [newTask, setNewTask] = useState({ title: '', subject: '', dueDate: '' });
+  const [message,setMessage]=useState('');
   const navigate = useNavigate();
   const userId = sessionStorage.getItem('userId');
 
@@ -25,18 +26,30 @@ export default function Dashboard() {
   const handleAddTask = async (newTask) => {
     if (!newTask.title || !newTask.subject || !newTask.dueDate) return;
     console.log('Adding task:', newTask);
-    await axios.post('http://localhost:5000/api/tasks', { ...newTask, userId, completed: false });
+    const response=await axios.post('http://localhost:5000/api/tasks', { ...newTask, userId, completed: false });
+    if(response.status===200){
+        setMessage('Task Added successfully');
+        setTimeout(() => setMessage(''), 3000);
+    }
     setNewTask({ title: '', subject: '', dueDate: '' });
     fetchTasks();
   };
 
   const handleToggleComplete = async (id) => {
-    await axios.patch(`http://localhost:5000/api/tasks/${id}/toggle`);
+    const response=await axios.patch(`http://localhost:5000/api/tasks/${id}/toggle`);
+    if(response.status===200){
+        setMessage('Task status updated successfully');
+        setTimeout(() => setMessage(''), 3000);
+    }
     fetchTasks();
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+    const response=await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+    if(response.status===200){
+        setMessage('Task deleted successfully');
+        setTimeout(() => setMessage(''), 3000);
+    }
     fetchTasks();
   };
 
@@ -54,6 +67,7 @@ export default function Dashboard() {
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-gray-800">Your Task Dashboard</h1>
+        {message && <div className="text-green-600">{message}</div>}
         <button
           onClick={handleLogout}
           className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
