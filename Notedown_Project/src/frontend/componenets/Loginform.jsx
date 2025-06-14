@@ -8,7 +8,7 @@ function LoginForm() {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/api/Login', { username, password });
+      const res = await axios.post('https://notedown-project.onrender.com/api/Login', { username, password });
       sessionStorage.setItem('userId', res.data.userId);
       navigate('/dashboard');
     } catch {

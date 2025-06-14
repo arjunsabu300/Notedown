@@ -19,14 +19,14 @@ export default function Dashboard() {
   }, []);
 
   const fetchTasks = async () => {
-    const res = await axios.get(`http://localhost:5000/api/tasks?userId=${userId}`);
+    const res = await axios.get(`https://notedown-project.onrender.com/api/tasks?userId=${userId}`);
     setTasks(res.data);
   };
 
   const handleAddTask = async (newTask) => {
     if (!newTask.title || !newTask.subject || !newTask.dueDate) return;
     console.log('Adding task:', newTask);
-    const response=await axios.post('http://localhost:5000/api/tasks', { ...newTask, userId, completed: false });
+    const response=await axios.post('https://notedown-project.onrender.com/api/tasks', { ...newTask, userId, completed: false });
     if(response.status===200){
         setMessage('Task Added successfully');
         setTimeout(() => setMessage(''), 3000);
@@ -36,7 +36,7 @@ export default function Dashboard() {
   };
 
   const handleToggleComplete = async (id) => {
-    const response=await axios.patch(`http://localhost:5000/api/tasks/${id}/toggle`);
+    const response=await axios.patch(`https://notedown-project.onrender.com/api/tasks/${id}/toggle`);
     if(response.status===200){
         setMessage('Task status updated successfully');
         setTimeout(() => setMessage(''), 3000);
@@ -45,7 +45,7 @@ export default function Dashboard() {
   };
 
   const handleDelete = async (id) => {
-    const response=await axios.delete(`http://localhost:5000/api/tasks/${id}`);
+    const response=await axios.delete(`https://notedown-project.onrender.com/api/tasks/${id}`);
     if(response.status===200){
         setMessage('Task deleted successfully');
         setTimeout(() => setMessage(''), 3000);

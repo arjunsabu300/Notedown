@@ -16,7 +16,7 @@ export default function RegisterForm() {
     }
 
     try {
-      const response=await axios.post('http://localhost:5000/api/Register', { username, password,phonenumber});
+      const response=await axios.post('https://notedown-project.onrender.com/api/Register', { username, password,phonenumber});
       if(response.status==200){
         setError('Successfully registered! You can now log in.');
       }
