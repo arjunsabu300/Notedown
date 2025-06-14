@@ -13,15 +13,18 @@ app.use(cors());
 app.use(express.json());
 
 main()
-.then(()=>console.log('DB connected..'))
-.catch(err => console.log(err));
-
-startreminder();
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch(err => console.error("❌ MongoDB connection error:", err));
 
 async function main() {
-   await mongoose.connect(process.env.MONGODB_URL);
-    
+  console.log("Connecting to:", process.env.MONGODB_URL); // temporary debug
+  await mongoose.connect(process.env.MONGODB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
 }
+
+startreminder();
 
 app.post('/api/register', async (req, res) => {
   const { username, password,phonenumber } = req.body;
@@ -102,7 +105,7 @@ setInterval(() => {
     .catch(error => {
       console.error('Ping failed:', error.message);
     });
-}, 5 * 60 * 10); 
+}, 5 * 60 * 1000); 
 
 app.listen(5000, () => console.log("Server running on port 5000"));
 
