@@ -64,49 +64,55 @@ export default function Dashboard() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">Your Task Dashboard</h1>
-        {message && <div className="text-green-600">{message}</div>}
-        <button
-          onClick={handleLogout}
-          className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-        >
-          Logout
-        </button>
+    <div className="min-h-screen bg-gray-100 p-4 sm:p-6">
+  {/* Header */}
+  <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
+    <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 text-center sm:text-left">
+      Your Task Dashboard
+    </h1>
+    {message && (
+      <div className="text-green-600 text-sm sm:text-base text-center sm:text-left">
+        {message}
       </div>
+    )}
+    <button
+      onClick={handleLogout}
+      className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition duration-300 text-sm sm:text-base"
+    >
+      Logout
+    </button>
+  </div>
 
-      {/* Task Form */}
-      <TaskForm
-        onSubmit={handleAddTask}
+  {/* Task Form */}
+  <TaskForm onSubmit={handleAddTask} />
+
+  {/* Filters */}
+  <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md mb-6">
+    <h2 className="text-lg sm:text-xl font-semibold mb-4">Filters</h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <input
+        type="text"
+        placeholder="Filter by Subject"
+        value={subjectFilter}
+        onChange={(e) => setSubjectFilter(e.target.value)}
+        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
       />
-
-      {/* Filters */}
-      <div className="bg-white p-6 rounded-xl shadow-md mb-6">
-        <h2 className="text-xl font-semibold mb-4">Filters</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <input
-            type="text"
-            placeholder="Filter by Subject"
-            value={subjectFilter}
-            onChange={(e) => setSubjectFilter(e.target.value)}
-            className="input"
-          />
-          <input
-            type="date"
-            value={dateFilter}
-            onChange={(e) => setDateFilter(e.target.value)}
-            className="input"
-          />
-        </div>
-      </div>
-
-      {/* Task List */}
-      <TaskList
-        tasks={filteredTasks}
-        onToggleComplete={handleToggleComplete}
-        onDelete={handleDelete}
+      <input
+        type="date"
+        value={dateFilter}
+        onChange={(e) => setDateFilter(e.target.value)}
+        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
       />
     </div>
+  </div>
+
+  {/* Task List */}
+  <TaskList
+    tasks={filteredTasks}
+    onToggleComplete={handleToggleComplete}
+    onDelete={handleDelete}
+  />
+</div>
+
   );
 }

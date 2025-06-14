@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 const Users = require('./models/User');
 const Task = require('./models/Tasks');
 const startreminder = require('./Message');
-
+const axios = require('axios');
 
 dotenv.config();
 const app = express();
@@ -87,8 +87,24 @@ app.delete('/api/tasks/:id', async (req, res) => {
   }
 });
 
+app.get('/healthcheck', (req, res) => {
+  res.status(200).send('OK');
+});
 
- app.listen(5000, () => console.log("Server running on port 5000"));
+
+
+
+setInterval(() => {
+  axios.get('http://localhost:5000/healthcheck')
+    .then(response => {
+      console.log('Ping successful:', response.data);
+    })
+    .catch(error => {
+      console.error('Ping failed:', error.message);
+    });
+}, 5 * 60 * 10); 
+
+app.listen(5000, () => console.log("Server running on port 5000"));
 
 
 
