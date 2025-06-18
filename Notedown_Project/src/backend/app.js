@@ -165,7 +165,7 @@ setInterval(() => {
     .catch(error => {
       console.error('Ping failed:', error.message);
     });
-}, 5 * 60 * 1000); 
+}, 6 * 60 * 1000); 
 
 app.listen(5000, () => console.log("Server running on port 5000"));
 

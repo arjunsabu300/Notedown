@@ -34,7 +34,7 @@ const sendWhatsappreminder = async(task,tophonenumber)=>{
 
 
 const startreminder=()=>{
-    cron.schedule('00 9 * * *',async()=>{
+    cron.schedule('00 09 * * *',async()=>{
         const now = new Date();
         const threedayslater = new Date(now);
         threedayslater.setDate(now.getDate()+2);
