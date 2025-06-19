@@ -4,7 +4,6 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const Users = require('./models/User');
 const Task = require('./models/Tasks');
-const startreminder = require('./Message');
 const axios = require('axios');
 const twilio = require('twilio');
 
@@ -12,6 +11,13 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+const accountSid = process.env.Twilio_sid;
+const authToken = process.env.Twilio_auth_token;
+
+const client = twilio(accountSid,authToken);
+
+const FROM_NUMBER= process.env.Twilio_from_number;
 
 main()
   .then(() => console.log("✅ MongoDB connected"))
@@ -96,15 +102,6 @@ app.get('/healthcheck', (req, res) => {
 });
 
 
-
-
-
-const accountSid = process.env.Twilio_sid;
-const authToken = process.env.Twilio_auth_token;
-
-const client = twilio(accountSid,authToken);
-
-const FROM_NUMBER= process.env.Twilio_from_number;
 
 
 const sendWhatsappreminder = async(task,tophonenumber)=>{
